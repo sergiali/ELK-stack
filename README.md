@@ -37,3 +37,27 @@ generate TOKEN  #~ ./elasticsearch-create-enrollment-token -s node
 then edit elasticsearch.yml file on nodes 
 
 #~ systemctl restart elasticsearch
+
+- is time to kibana : 
+
+reset kibana users password to "kibana":  #~ /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana -i
+
+- install kibana .deb file on node 1:   #~ dpkg -i kibana.deb
+
+generate .key and .crt file from p12 key in 4 steps bellow:
+
+save password from bellow:  
+
+1. #~ /usr/share/elasticsearch/bin/elasticsearch-keystore show xpack.security.http.ssl.keystore.secure_password  
+
+create and expose .key and .crt file from p12 file:  
+
+2. #~ openssl pcks12 -in /etc/elasticsearch/certs/http.p12 -out server.crt -clcerts -nokeys 
+
+3. #~ openssl pcks12 -in /etc/elasticsearch/certs/http.p12 -out server.key -nocerts -nodes
+
+make ready keys to usage of kibana app:
+
+4. #~ chown root:kibana /etc/kibana/server.* chmod g+r /etc/kibana/server.*
+
+config kibana.yml file like the kibana.yml uploaded here.
