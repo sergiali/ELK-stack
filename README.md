@@ -23,3 +23,17 @@ wget https://artifacts.elastic.co/downloads/logstash/logstash-8.15.2-amd64.deb
 
 - now edit elasticsearch yaml file to set and initialize cluster like the elasticsearch.yml file uploaded here.
 
+
+- 2 command below all done on master node
+
+#~ systemctl start elasticsearch
+
+generate TOKEN  #~ ./elasticsearch-create-enrollment-token -s node
+
+- run 2 command bellow on slave nodes
+
+#~ ./elasticsearch-reconfigure-node --enrollment-token $TOKEN
+
+then edit elasticsearch.yml file on nodes 
+
+#~ systemctl restart elasticsearch
