@@ -61,3 +61,9 @@ make ready keys to usage of kibana app:
 4. #~ chown root:kibana /etc/kibana/server.* chmod g+r /etc/kibana/server.*
 
 config kibana.yml file like the kibana.yml uploaded here.
+
+restart kibana:  #~ systemctl restart kibana
+
+- the way you can test your cluster and see the totally status on terminal :
+
+nodes: #~ curl -k -u elastic "https://37.32.12.116:9200/_cat/nodes?v"          kibana: "https://37.32.12.116:5601"      cluster health: "https://37.32.12.116:9200/_cluster/health"
