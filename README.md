@@ -67,3 +67,9 @@ restart kibana:  #~ systemctl restart kibana
 - the way you can test your cluster and see the totally status on terminal :
 
 nodes: #~ curl -k -u elastic "https://37.32.12.116:9200/_cat/nodes?v"          kibana: "https://37.32.12.116:5601"      cluster health: "https://37.32.12.116:9200/_cluster/health"
+
+- generate keys for Logstash-filebeat
+
+#~ openssl genrsa -out ca.key 2048
+
+#~ openssl req -x509 -new -nodes -key ca.key -sha256 -days 3650 -out ca.crt
