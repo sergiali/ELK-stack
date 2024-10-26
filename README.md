@@ -102,3 +102,5 @@ now run these commands :
 #~ openssl req -sha512 -new -key beat.key -out beat.csr -config beat.conf
 
 #~ openssl x509 -days 3650 -req -sha512 -in beat.csr -CAserial serial -CA ca.crt -CAkey ca.key -out beat.crt -extensions v3_req -extensions usr_cert  -extfile beat.conf
+
+- SSL/TLS is DONE !
