@@ -73,3 +73,18 @@ nodes: #~ curl -k -u elastic "https://37.32.12.116:9200/_cat/nodes?v"          k
 #~ openssl genrsa -out ca.key 2048
 
 #~ openssl req -x509 -new -nodes -key ca.key -sha256 -days 3650 -out ca.crt
+
+
+- create logstash config file and write configs like the logstash.conf file uploaded here
+
+#~ openssl genrsa -out logstash.key 2048
+
+#~ openssl req -sha512 -new -key logstash.key -out logstash.csr -config logstash.conf
+
+#~ openssl x509 -in ca.crt -text -noout  -serial
+
+#~ echo "(serial-number)" > serial
+
+#~ openssl x509 -days 3650 -req -sha512 -in logstash.csr -CAserial serial -CA ca.crt -CAkey ca.key -out logstash.crt -extensions v3_req -extfile logstash.conf
+
+#~ mv logstash.key logstash.key.pem && openssl pkcs8 -in logstash.key.pem -topk8 -nocrypt -out logstash.key
