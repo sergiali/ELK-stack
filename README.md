@@ -88,3 +88,17 @@ nodes: #~ curl -k -u elastic "https://37.32.12.116:9200/_cat/nodes?v"          k
 #~ openssl x509 -days 3650 -req -sha512 -in logstash.csr -CAserial serial -CA ca.crt -CAkey ca.key -out logstash.crt -extensions v3_req -extfile logstash.conf
 
 #~ mv logstash.key logstash.key.pem && openssl pkcs8 -in logstash.key.pem -topk8 -nocrypt -out logstash.key
+
+
+
+
+
+- create filebeat config file and write configs like the beat.conf file uploaded here
+
+now run these commands :
+
+#~ openssl genrsa -out beat.key  2048
+
+#~ openssl req -sha512 -new -key beat.key -out beat.csr -config beat.conf
+
+#~ openssl x509 -days 3650 -req -sha512 -in beat.csr -CAserial serial -CA ca.crt -CAkey ca.key -out beat.crt -extensions v3_req -extensions usr_cert  -extfile beat.conf
