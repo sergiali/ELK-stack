@@ -104,3 +104,24 @@ now run these commands :
 #~ openssl x509 -days 3650 -req -sha512 -in beat.csr -CAserial serial -CA ca.crt -CAkey ca.key -out beat.crt -extensions v3_req -extensions usr_cert  -extfile beat.conf
 
 - SSL/TLS is DONE !
+
+***************************************************************************************************
+
+- install logstash and filebeat :
+
+#~ dpkg -i logstash... .deb
+
+#~ dpkg -i filebeat... .deb
+
+- config logstash file :
+
+vi /etc/logstash/conf.d/logstash.conf like the logstash.conf file uploaded here
+
+
+- in new window run :
+
+#~ /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf -r 
+
+- now config filebeat :
+
+#~ vi /etc/filebeat/filebeat.yml      like the filebeat.yml file uploaded here 
