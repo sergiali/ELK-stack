@@ -90,7 +90,7 @@ nodes: #~ curl -k -u elastic "https://37.32.12.116:9200/_cat/nodes?v"          k
 #~ mv logstash.key logstash.key.pem && openssl pkcs8 -in logstash.key.pem -topk8 -nocrypt -out logstash.key
 
 
-
+###################################################################################################
 
 
 - create filebeat config file and write configs like the beat.conf file uploaded here
@@ -109,9 +109,9 @@ now run these commands :
 
 - install logstash and filebeat :
 
-#~ dpkg -i logstash... .deb
+#~ dpkg -i logstash... .deb    on node 3
 
-#~ dpkg -i filebeat... .deb
+#~ dpkg -i filebeat... .deb    on node 2
 
 - config logstash file :
 
